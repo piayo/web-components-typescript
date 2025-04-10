@@ -1,0 +1,52 @@
+{
+    "name": "@piayo/web-components-typescript",
+    "description": "<type-script> is a Web Component that lets you write and run TypeScript directly in HTML.",
+    "author": "piayo",
+    "version": "0.0.1",
+    "license": "MIT",
+    "type": "module",
+    "keywords": [],
+    "scripts": {
+        "dev": "vite",
+        "clean": "rimraf dist",
+        "build": "npm-run-all -s clean eslint build:* && echo 'Done'",
+        "build:js": "tsc && vite build --emptyOutDir",
+        "build:cem": "cem analyze --litelement --globs 'src/components/**' --outdir 'dist/components'",
+        "eslint": "eslint -c 'eslint.config.js' --max-warnings=0",
+        "pub": "npm publish --access=public"
+    },
+    "main": "./dist/components/index.js",
+    "module": "./dist/components/index.js",
+    "types": "./dist/components/index.d.ts",
+    "exports": {
+        ".": "./dist/components/index.js",
+        "./custom-elements.json": "./dist/components/custom-elements.json",
+        "./components/": "./dist/components/"
+    },
+    "files": [
+        "dist",
+        "custom-elements.json"
+    ],
+    "customElements": "custom-elements.json",
+    "devDependencies": {
+        "@custom-elements-manifest/analyzer": "^0.10.3",
+        "@eslint/js": "^9.21.0",
+        "@jest/globals": "^29.7.0",
+        "@typescript-eslint/eslint-plugin": "^8.25.0",
+        "@typescript-eslint/parser": "^8.25.0",
+        "@web/dev-server-esbuild": "^1.0.2",
+        "copyfiles": "^2.4.1",
+        "eslint": "^9.21.0",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^6.0.1",
+        "rollup-plugin-minify-template-literals": "^1.1.7",
+        "typescript-eslint": "^8.26.0",
+        "vite": "^6.2.0",
+        "vite-plugin-dts": "^4.0.3",
+        "vite-plugin-eslint": "^1.8.1"
+    },
+    "dependencies": {
+        "lit": "^3.2.0",
+        "typescript": "^5.8.3"
+    }
+}

@@ -1,0 +1,9 @@
+// .vscode/settings.json
+{
+  "highlight.regexes": {
+    "<script type=\"text/type-script\">([\\s\\S]*?)</script>": {
+      "filterLanguageRegex": "html",
+      "scope": "source.ts"
+    }
+  }
+}

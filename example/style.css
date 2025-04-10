@@ -1,0 +1,103 @@
+:root {
+    /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1;
+
+    color: #000;
+    background-color: var(--surface-1);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+._spacer {
+    height: 50dvh;
+}
+
+#app {
+    display: flex;
+    position: relative;
+
+    #header {
+        width: 240px;
+        background-color: #edf1eb;
+        .inner {
+            position: sticky;
+            left: 0;
+            top: 0;
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 16px;
+                h1 {
+                    font-size: 16px;
+                }
+                img {
+                    height: 24px;
+                }
+            }
+        }
+    }
+    #main {
+        flex: 1;
+        padding: 32px;
+    }
+}
+
+.popover {
+    /*   2. After-change state */
+    transform: translateY(-50px);
+    opacity: 0;
+
+    /*  enumarate transitioning properties, including display */
+    transition: transform 0.5s, opacity 0.5s, display 0.5s allow-discrete;
+
+    &:popover-open {
+        /*   0. before-change   */
+        @starting-style {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        /*   1. open (changed) state   */
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.menu-cont {
+    ul {
+        background-color: #eee;
+        padding: 10px;
+        margin: 0;
+    }
+    li {
+        display: block;
+        background-color: #ccc;
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+    }
+    a {
+        display: block;
+        background-color: #666;
+        padding: 10px;
+        margin: 0;
+    }
+}
+
+[popover] {
+    --target: ;
+    position: fixed;
+    margin: 0;
+    position-anchor: var(--target);
+    left: anchor(var(--target) left);
+    top: anchor(var(--target) bottom);
+}

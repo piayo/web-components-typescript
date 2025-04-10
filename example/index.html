@@ -1,0 +1,29 @@
+ <!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example</title>
+    <script type="module" src="/dist/components/type-script/index.js"></script>
+    <style>
+    /*
+    It is recommended to write the following CSS
+    or add the hidden attribute, like <type-script hidden>,.
+    */
+    *:not(:defined) { display:none; }
+    </style>
+  </head>
+  <body>
+    counter: <span id="count">0</span>
+    <type-script>
+    console.log(">> run type-script!");
+    const countElement = document.querySelector("#count")!;
+    let c: number = 0;
+    setInterval( () => {
+        c++;
+        countElement.textContent = `${c}`;
+    }, 1000 * 1);
+    </type-script>
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>
